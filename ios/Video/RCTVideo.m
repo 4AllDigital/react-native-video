@@ -1226,7 +1226,7 @@ static int const RCTVideoUnset = -1;
       if(self.onVideoFullscreenPlayerWillPresent) {
         self.onVideoFullscreenPlayerWillPresent(@{@"target": self.reactTag});
       }
-      [viewController presentViewController:_playerViewController animated:true completion:^{
+      [viewController presentViewController:_playerViewController animated:false completion:^{
         _playerViewController.showsPlaybackControls = YES;
         _fullscreenPlayerPresented = fullscreen;
         _playerViewController.autorotate = _fullscreenAutorotate;
@@ -1239,7 +1239,7 @@ static int const RCTVideoUnset = -1;
   else if ( !fullscreen && _fullscreenPlayerPresented )
   {
     [self videoPlayerViewControllerWillDismiss:_playerViewController];
-    [_presentingViewController dismissViewControllerAnimated:true completion:^{
+    [_presentingViewController dismissViewControllerAnimated:false completion:^{
       [self videoPlayerViewControllerDidDismiss:_playerViewController];
     }];
   }
